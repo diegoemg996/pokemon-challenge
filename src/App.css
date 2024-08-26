@@ -73,8 +73,13 @@
   text-align: center;
 }
 
+.list__item:hover {
+  background-color: #e6e6e6;
+}
+
 .list__item:active {
   transform: translateY(3px);
+  background-color: #e6e6e6;
   box-shadow: 3px 3px 3px -1px rgba(173, 173, 173, 1);
 }
 

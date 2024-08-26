@@ -7,6 +7,8 @@ const initialState = {
   loading: false,
 };
 
+const API_URL = "https://pokeapi.co/api/v2/pokemon";
+
 export const getPokemons = createAsyncThunk(
   "pokemons/fetchPokemons",
   async ({ page }) => {
@@ -19,7 +21,7 @@ export const getPokemons = createAsyncThunk(
     }
 
     const response = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
+      `${API_URL}?limit=${limit}&offset=${offset}`
     );
     return response.data.results;
   }
@@ -37,9 +39,7 @@ export const getPokemonById = createAsyncThunk(
 export const getPokemonByName = createAsyncThunk(
   "pokemons/fetchPokemonByName",
   async (name) => {
-    const response = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${name}`
-    );
+    const response = await axios.get(`${API_URL}/${name}`);
     return response.data;
   }
 );
